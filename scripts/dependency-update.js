@@ -3,9 +3,9 @@ const { execSync } = require("child_process");
 const run = async (gitUserName, gitUserEmail, wsdir) => {
   const branchName = "bit-dependency-update";
 
-  execSync("bit checkout head --all", { cwd: wsdir, shell: '/bin/bash' });
-  execSync("bit envs update", { cwd: wsdir, shell: '/bin/bash' });
-  execSync("bit update -y", { cwd: wsdir, shell: '/bin/bash' });
+  execSync("bit checkout head --all", { cwd: wsdir, shell: '/bin/bash' }); // update workspace components
+  execSync("bit envs update", { cwd: wsdir, shell: '/bin/bash' }); // update envs
+  execSync("bit update -y", { cwd: wsdir, shell: '/bin/bash' }); // update external dependencies
 
   const options = {
     stdio: "pipe",
