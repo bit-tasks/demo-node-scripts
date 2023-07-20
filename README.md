@@ -1,5 +1,5 @@
-# Bit JavaScript Tasks for Git CI/CD Pipelines
-Bit JavaScript Tasks that you can use in Github Actions, AzureDevOps, GitLab and other CI/CD platforms.
+# Node.js Tasks for Bit and Git CI/CD Pipelines
+Node.js Tasks that you can use in Github Actions, AzureDevOps, GitLab and other CI/CD platforms.
 
 **Note:** You may need to use variables (e.g envioronment, pipeline) to share state between tasks based on your CI platform.
 
