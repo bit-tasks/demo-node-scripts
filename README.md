@@ -17,6 +17,12 @@ Bit JavaScript Tasks that you can use in Github Actions, AzureDevOps, GitLab and
 
 Steps to create custom tasks in different CI/CD platforms.
 
+```
+git commit -m "Update task"
+git tag -a -m "action release" v1 --force
+git push --follow-tags
+```
+
 ### GitHub Actions
 
 For more information refer [Create a javascript action](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action)
