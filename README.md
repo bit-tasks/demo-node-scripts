@@ -21,7 +21,7 @@ git tag -a -m "action release" v1 --force
 git push --follow-tags
 ```
 
-Steps to create custom tasks in different CI/CD platforms.
+## References
 
 ### GitHub Actions
 
