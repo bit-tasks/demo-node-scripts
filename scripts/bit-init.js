@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const run = async (bitConfigUserToken, wsdir) => {
+const run = async (wsdir) => {
+  var bitConfigUserToken = process.env.BIT_CONFIG_USER_TOKEN;
   execSync("npx @teambit/bvm install", { shell: '/bin/bash' });
   process.env.PATH = `${process.env.HOME}/bin:` + process.env.PATH; // This step may change depending on your CI runner
 
