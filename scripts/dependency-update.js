@@ -1,6 +1,6 @@
 const { execSync } = require("child_process");
 
-const run = async (gitUserName, gitUserEmail, wsdir) => {
+const run = async (wsdir) => {
   const branchName = "bit-dependency-update";
 
   execSync("bit checkout head --all", { cwd: wsdir, shell: "/bin/bash" }); // update workspace components
@@ -17,11 +17,11 @@ const run = async (gitUserName, gitUserEmail, wsdir) => {
   const statusOutput = execSync("git status --porcelain", options);
 
   if (statusOutput) {
-    execSync(`git config --global user.name "${gitUserName}"`, {
+    execSync(`git config --global user.name "${process.env.GIT_USER_NAME}"`, {
       cwd: wsdir,
       shell: "/bin/bash",
     });
-    execSync(`git config --global user.email "${gitUserEmail}"`, {
+    execSync(`git config --global user.email "${process.env.GIT_USER_EMAIL}"`, {
       cwd: wsdir,
       shell: "/bin/bash",
     });

@@ -1,11 +1,11 @@
 const { execSync } = require("child_process");
 
-const run = (gName, gEmail, wsdir) => {
-  execSync(`git config --global user.name "${gName}"`, {
+const run = (wsdir) => {
+  execSync(`git config --global user.name "${process.env.GIT_USER_NAME}}"`, {
     cwd: wsdir,
     shell: "/bin/bash",
   });
-  execSync(`git config --global user.email "${gEmail}"`, {
+  execSync(`git config --global user.email "${process.env.GIT_USER_EMAIL}"`, {
     cwd: wsdir,
     shell: "/bin/bash",
   });
