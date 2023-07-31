@@ -1,29 +1,42 @@
 # Bit Node.js Tasks for Git CI/CD Pipelines
-Node.js Tasks that you can use in Github Actions, AzureDevOps, GitLab and other CI/CD platforms.
+Node.js Tasks that you can use in Github Actions, Azure DevOps, GitLab and other CI/CD platforms.
 
 ## Setup Guide
 
-1. You need to use variables (e.g envioronment variables `BIT_CONFIG_USER_TOKEN`, `GITHUB_TOKEN`) to share state between tasks based on your CI platform.  environment variable at the job level before running these tasks.
-2. You need to pass the workspace root directory `ws-dir` for all the tasks and other parameters as required.
+
+1. You need to define the following environment variables in your CI platform and share them across the tasks.
+    - `GIT_USER_NAME` - Your Git user name.
+    - `GIT_USER_EMAIL` - Your Git email.
+    - `BIT_CONFIG_USER_TOKEN` - The value for this should be stored secretly in your CI platform, which you can retrieve by running `bit config get user.token` in your terminal.
+    - `BIT_CONFIG_ANALYTICS_REPORTING` - `"false"`
+    - `BIT_CONFIG_ANONYMOUS_REPORTING` - `"false"`
+    - `BIT_CONFIG_INTERACTIVE` - `"false"`
+2. You need to pass the workspace root directory `ws-dir` for all the tasks. If your Bit workspace is at the root level, pass `"./"`.
 
 ### Automating Component Release
 
-- Initialize Bit - [bit-init.js](/scripts/bit-init.js)
-- Bit Verify Components - [verify.js](/scripts/verify.js)
-- Bit Tag and Export - [tag-export.js](/scripts/tag-export.js)
-- Bit Pull Request Build - [pull-request.js](/scripts/pull-request.js)
-- Commit Bitmap - [commit-bitmap.js](/scripts/commit-bitmap.js)
+| Task                        | Node.js Example                  |
+|-----------------------------|---------------------------------|
+| Initialize Bit          | [bit-init.js](/scripts/bit-init.js) |
+| Bit Verify Components   | [verify.js](/scripts/verify.js) |
+| Bit Tag and Export      | [tag-export.js](/scripts/tag-export.js) |
+| Bit Pull Request Build  | [pull-request.js](/scripts/pull-request.js) |
+| Commit Bitmap           | [commit-bitmap.js](/scripts/commit-bitmap.js) |
 
   :arrow_down: [Download Files](https://github.com/bit-tasks/nodejs/raw/main/downloads/automating-component-releases.zip)
 
 ### Update Workspace Components, External Dependencies and Envs
-- Dependency Update - [dependency-update.js](/scripts/dependency-update.js)
+| Task                        | Node.js Example                  |
+|-----------------------------|-------------------------------|
+| Dependency Update           |  [dependency-update.js](/scripts/dependency-update.js) |
 
   :arrow_down: [Download Files](https://github.com/bit-tasks/nodejs/raw/main/downloads/dependency-update.zip)
 
 ### Sync Git Branches with Bit Lanes
 
-- Branch Lane - [branch-lane.js](/scripts/branch-lane.js)
+| Task                        | Node.js Example                  |
+|-----------------------------|---------------------------------|
+| Branch Lane                 | [branch-lane.js](/scripts/branch-lane.js) |
 
   :arrow_down: [Download Files](https://github.com/bit-tasks/nodejs/raw/main/downloads/branch-lane.zip)
 
