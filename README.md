@@ -21,6 +21,7 @@ Node.js Tasks that you can use in Github Actions, Azure DevOps, GitLab and other
 | Bit Verify Components   | [verify.js](/scripts/verify.js) |
 | Bit Tag and Export      | [tag-export.js](/scripts/tag-export.js) |
 | Bit Pull Request Build  | [pull-request.js](/scripts/pull-request.js) |
+| Bit Lane Cleanup        | [lane-cleanup.js](/scripts/lane-cleanup.js) |
 | Commit Bitmap           | [commit-bitmap.js](/scripts/commit-bitmap.js) |
 
   :arrow_down: [Download Files](https://github.com/bit-tasks/nodejs/raw/main/downloads/automating-component-releases.zip)
