@@ -41,13 +41,6 @@ Node.js Tasks that you can use in Github Actions, Azure DevOps, GitLab and other
 
   :arrow_down: [Download Files](https://github.com/bit-tasks/nodejs/raw/main/downloads/branch-lane.zip)
 
-## Contributor Guide
-
-```
-git commit -m "Update task"
-git tag -a -m "action release" v1 --force
-git push --follow-tags
-```
 
 ## References
 
@@ -62,3 +55,12 @@ For more information refer [Specify a custom CI/CD file](https://docs.gitlab.com
 ### Azure DevOps
 
 For more information refer [Add build task](https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?view=azure-devops)
+
+## Contributor Guide
+
+To create zip files use the below commands.
+
+```bash
+chmod +x zip_files.sh
+bash ./zip_files.sh
+```
