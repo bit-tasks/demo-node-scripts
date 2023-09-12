@@ -3,7 +3,7 @@ const { execSync } = require("child_process");
 const run = (org, scope, lane, wsdir) => {
   execSync("bit status --strict", { cwd: wsdir, shell: "/bin/bash" });
   execSync(`bit lane create ${lane}`, { cwd: wsdir, shell: "/bin/bash" });
-  execSync('bit snap -m "CI"', { cwd: wsdir, shell: "/bin/bash" });
+  execSync('bit snap -m "CI" --build', { cwd: wsdir, shell: "/bin/bash" });
 
   try {
     execSync(`bit lane remove ${org}.${scope}/${lane} --remote --silent`, {
