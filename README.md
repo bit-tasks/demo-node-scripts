@@ -42,7 +42,7 @@ Node.js Tasks that you can use in Github Actions, Azure DevOps, GitLab and other
   :arrow_down: [Download Files](https://github.com/bit-tasks/nodejs/raw/main/downloads/branch-lane.zip)
 
 ## Setup PNPM Caching
-You can speed up the CI builds by caching the `pnpm store`. Refer to the official documentation for [continuous integration](https://pnpm.io/continuous-integration) from pnpm.
+You can speed up the CI builds by caching the `pnpm store`. Refer to the official documentation for [continuous integration](https://pnpm.io/continuous-integration) by `pnpm`.
 
 
 ## References
