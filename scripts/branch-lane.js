@@ -1,10 +1,12 @@
 const { execSync } = require("child_process");
 
 const run = async (laneName, wsdir) => {
-  execSync("bit status --strict", { cwd: wsdir, shell: "/bin/bash" });
-  execSync(`bit lane create ${laneName}`, { cwd: wsdir, shell: "/bin/bash" });
-  execSync('bit snap -m "CI" --build', { cwd: wsdir, shell: "/bin/bash" });
-  execSync("bit export", { cwd: wsdir, shell: "/bin/bash" });
+  const options = { cwd: wsdir, shell: "/bin/bash" };
+
+  execSync("bit status --strict", options);
+  execSync(`bit lane create "${laneName}"`, options);
+  execSync('bit snap -m "CI" --build', options);
+  execSync("bit export", options);
 };
 
 module.exports = run;

@@ -1,8 +1,10 @@
 const { execSync } = require("child_process");
 
 const run = (wsdir) => {
-  execSync("bit status --strict", { cwd: wsdir, shell: "/bin/bash" });
-  execSync("bit build", { cwd: wsdir, shell: "/bin/bash" });
+  const options = { cwd: wsdir, shell: "/bin/bash" };
+
+  execSync("bit status --strict", options);
+  execSync("bit build", options);
 };
 
 module.exports = run;

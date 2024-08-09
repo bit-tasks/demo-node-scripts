@@ -38,6 +38,7 @@ Node.js Tasks that you can use in Github Actions, Azure DevOps, GitLab and other
 | Task                        | Node.js Example                  |
 |-----------------------------|---------------------------------|
 | Branch Lane                 | [branch-lane.js](/scripts/branch-lane.js) |
+| Lane Branch                 | [lane-branch.js](/scripts/lane-branch.js) |
 
   :arrow_down: [Download Files](https://github.com/bit-tasks/nodejs/raw/main/downloads/branch-lane.zip)
 

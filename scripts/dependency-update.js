@@ -2,11 +2,6 @@ const { execSync } = require("child_process");
 
 const run = async (wsdir) => {
   const branchName = "bit-dependency-update";
-
-  execSync("bit checkout head --all", { cwd: wsdir, shell: "/bin/bash" }); // update workspace components
-  execSync("bit envs update", { cwd: wsdir, shell: "/bin/bash" }); // update envs
-  execSync("bit update -y", { cwd: wsdir, shell: "/bin/bash" }); // update external dependencies
-
   const options = {
     stdio: "pipe",
     encoding: "utf8",
@@ -14,30 +9,21 @@ const run = async (wsdir) => {
     shell: "/bin/bash",
   };
 
+  // Run the Bit commands
+  execSync("bit checkout head --all", options); // update workspace components
+  execSync("bit envs update", options); // update envs
+  execSync("bit update -y", options); // update external dependencies
+
+  // Check for changes in the Git workspace
   const statusOutput = execSync("git status --porcelain", options);
 
   if (statusOutput) {
-    execSync(`git config --global user.name "${process.env.GIT_USER_NAME}"`, {
-      cwd: wsdir,
-      shell: "/bin/bash",
-    });
-    execSync(`git config --global user.email "${process.env.GIT_USER_EMAIL}"`, {
-      cwd: wsdir,
-      shell: "/bin/bash",
-    });
-    execSync(`git checkout -b ${branchName}`, {
-      cwd: wsdir,
-      shell: "/bin/bash",
-    });
-    execSync("git add .", { cwd: wsdir, shell: "/bin/bash" });
-    execSync(`git commit -m "Update Bit envs and outdated dependencies"`, {
-      cwd: wsdir,
-      shell: "/bin/bash",
-    });
-    execSync(`git push origin ${branchName} --force`, {
-      cwd: wsdir,
-      shell: "/bin/bash",
-    });
+    execSync(`git config --global user.name "${process.env.GIT_USER_NAME}"`, options);
+    execSync(`git config --global user.email "${process.env.GIT_USER_EMAIL}"`, options);
+    execSync(`git checkout -b "${branchName}"`, options);
+    execSync("git add .", options);
+    execSync(`git commit -m "Update Bit envs and outdated dependencies"`, options);
+    execSync(`git push origin "${branchName}" --force`, options);
 
     // Todo: Create a Pull Request using the API/CLI of your CI platform
   }

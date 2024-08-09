@@ -1,8 +1,10 @@
 const { execSync } = require("child_process");
 
 const run = (wsdir) => {
-  execSync('bit tag -m "CI" --build', { cwd: wsdir, shell: "/bin/bash" }); // add --persist flag for soft tagging workflow
-  execSync("bit export", { cwd: wsdir, shell: "/bin/bash" });
+  const options = { cwd: wsdir, shell: "/bin/bash" };
+
+  execSync('bit tag -m "CI" --build', options); // add --persist flag for soft tagging workflow
+  execSync("bit export", options);
 };
 
 module.exports = run;
