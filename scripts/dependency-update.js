@@ -1,7 +1,10 @@
 const { execSync } = require("child_process");
 
 const run = async (wsdir) => {
+  // Define the branch name for dependency updates
   const branchName = "bit-dependency-update";
+  
+  // Options for running shell commands in the specified working directory
   const options = {
     stdio: "pipe",
     encoding: "utf8",
@@ -9,14 +12,19 @@ const run = async (wsdir) => {
     shell: "/bin/bash",
   };
 
-  // Run the Bit commands
-  execSync("bit checkout head --all", options); // update workspace components
-  execSync("bit envs update", options); // update envs
-  execSync("bit update -y", options); // update external dependencies
+  // Checkout the latest versions of all workspace components
+  execSync("bit checkout head --all", options);
+
+  // Update environment dependencies. You can optionally use a glob pattern to filter specific components if needed
+  execSync("bit envs update", options);
+
+  // Update external dependencies. You can optionally specify a version-update-policy (e.g., patch, minor, major, or semver)
+  execSync("bit update -y", options);
 
   // Check for changes in the Git workspace
   const statusOutput = execSync("git status --porcelain", options);
 
+  // If there are changes in the Git workspace, proceed to commit and push the changes
   if (statusOutput) {
     execSync(`git config --global user.name "${process.env.GIT_USER_NAME}"`, options);
     execSync(`git config --global user.email "${process.env.GIT_USER_EMAIL}"`, options);
